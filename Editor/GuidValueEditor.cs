@@ -13,10 +13,13 @@ namespace ValueObjects
             var guidValue = target as GuidValue;
 
             GUI.enabled = false;
-
             EditorGUILayout.TextField("Value", guidValue.Value.ToString());
-
             GUI.enabled = true;
+
+
+            DrawPropertiesExcluding(serializedObject, "m_Script", "_value", "_readonly");
+            serializedObject.ApplyModifiedProperties();
+
         }
     }
 }
